@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     # third party
     'wagtail.contrib.settings',
     'django_extensions',
+    'test_without_migrations',
     # my apps
     'nepalfund_cms',
 ]
@@ -146,3 +147,6 @@ WAGTAIL_SITE_NAME = "wagtail_crowd_funding"
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 BASE_URL = 'http://example.com'
+
+
+TEST_WITHOUT_MIGRATIONS_COMMAND = 'django_nose.management.commands.test.Command'
