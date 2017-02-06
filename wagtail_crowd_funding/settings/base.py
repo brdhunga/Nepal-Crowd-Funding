@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     # third party
     'wagtail.contrib.settings',
     'django_extensions',
@@ -88,6 +89,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                # for site wide settings
+                'wagtail.contrib.settings.context_processors.settings',
             ],
         },
     },
@@ -150,3 +153,6 @@ BASE_URL = 'http://example.com'
 
 
 TEST_WITHOUT_MIGRATIONS_COMMAND = 'django_nose.management.commands.test.Command'
+
+
+SITE_ID = 1
