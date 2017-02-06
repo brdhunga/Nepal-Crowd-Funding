@@ -17,6 +17,7 @@ import os
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
+print("the base dir is", BASE_DIR)
 
 
 # Quick-start development settings - unsuitable for production
@@ -52,6 +53,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # third party
     'wagtail.contrib.settings',
+    'django_extensions',
+    # my apps
     'nepalfund_cms',
 ]
 

@@ -36,3 +36,35 @@ class NepalFundLinkPage(Page):
 
 
 
+@register_setting
+class MainPageSettings(BaseSetting):
+    """
+    """
+    site_tagline = models.CharField(
+        max_length=100,
+        help_text="The tagline for the site.",
+        default="LETS START FUNDING THE NEW NEPAL."
+    )
+    site_subheading = models.TextField(
+        help_text="Sub heading for the site",
+        default="When you donate to nepal fund's projects, you are making a lasting impact on the future of Nepal."
+    )
+    learn_button_text = models.CharField(
+        max_length=50,
+        help_text="The label on the 'Learn more button'",
+        default="DONATE"
+    )
+    how_it_works_heading = models.CharField(
+        max_length=50,
+        help_text="The heading to display above the 'Learn about how it works' section ",
+        default="How it works"
+    )
+    how_it_works_intro = models.TextField(
+        help_text="Intro paragraph for the 'Learn about how it works' section.",
+        default=(
+            "'What a piece of work is man! how noble in reason! how infinite in faculty! in form and moving how express and admirable! in action how like an angel! in apprehension how like a god! the beauty of the world, the paragon of animals! '. - (Act II, Scene II)."
+       )
+    )
+    how_it_works_video_url = models.URLField(help_text="URL for 'how it works' video", default="https://www.youtube.com/embed/MCJGcDDNtms")
+
+    
