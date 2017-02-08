@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'django_extensions',
     'test_without_migrations',
     'imagekit',
+    'ckeditor',
     # my apps
     'nepalfund_cms',
     'project',
