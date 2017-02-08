@@ -3,11 +3,87 @@
 {% block body_class %}template-homepage{% endblock %}
 
 {% block content %}
-    <h1>Welcome to your new Wagtail site!</h1>
+    <div id="app">
 
-    <h3> Site tagline : </h3> <p>{{ settings.site_tagline }} </p>
+    <div></div>
+    <div id="projects-home-component">
 
-    <p>You can access the admin interface <a href="{% url 'wagtailadmin_home' %}">here</a> (make sure you have run "./manage.py createsuperuser" in the console first).</p>
+        {% include '_slider.html' %}
 
-    <p>If you haven't already given the documentation a read, head over to <a href="http://docs.wagtail.io/">http://docs.wagtail.io</a> to start building on Wagtail</p>
+        <div class="w-section section u-marginbottom-40">
+            <div class="w-container">
+                <div class="w-row u-marginbottom-30">
+                    <div class="w-col w-col-10 w-col-small-6 w-col-tiny-6">
+                        <div class="fontsize-large lineheight-looser">Popular project bivu edit</div>
+                    </div>
+                    <div class="w-col w-col-2 w-col-small-6 w-col-tiny-6">
+                        <div class="w-row">
+                            <div class="w-col w-col-12"><a href="/explore?ref=home_score&amp;filter=all" class="btn btn-small btn-terciary" data-vivaldi-spatnav-clickable="1">See all</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-row">
+                    <div class="w-col w-col-4">
+                        <div class="card-project card u-radius">
+                            <a href="/patachu?ref=home_score" class="card-project-thumb" style="background-image: url(); display: block;"></a>
+                            <div>
+                                <div class="card-project-description alt">
+                                    <div class="fontweight-semibold u-text-center-small-only lineheight-tight u-marginbottom-10 fontsize-base"><a href="/patachu?ref=home_score" class="link-hidden">Lorem Ipsum text </a></div>
+                                    <div class="w-hidden-small w-hidden-tiny fontsize-smallest fontcolor-secondary u-marginbottom-20">by Nepal Humana</div>
+                                    <div class="w-hidden-small w-hidden-tiny fontcolor-secondary fontsize-smaller"><a href="/patachu?ref=home_score" class="link-hidden">A data flow diagram (DFD) is a graphical representation of the "flow" of data through an information system, modelling its process aspects. A DFD is often .
+                                    </a></div>
+                                </div>
+                                <div class="w-hidden-small w-hidden-tiny card-project-author altt">
+                                    <div class="fontsize-smallest fontcolor-secondary"><span class="fa fa-map-marker fa-1"> </span> Kathmandu, NP</div>
+                                </div>
+                                <div class="card-project-meter aon online 69 66">
+                                    <div class="meter">
+                                        <div class="meter-fill" style="width: 25.66%;"></div>
+                                    </div>
+                                </div>
+                                <div class="card-project-stats">
+                                    <div class="w-row">
+                                        <div class="w-col w-col-4 w-col-small-4 w-col-tiny-4">
+                                            <div class="fontsize-base fontweight-semibold">69%</div>
+                                        </div>
+                                        <div class="w-col w-col-4 w-col-small-4 w-col-tiny-4 u-text-center-small-only">
+                                            <div class="fontsize-smaller fontweight-semibold">Rs. 23,686</div>
+                                            <div class="fontsize-smallest lineheight-tightest">raised</div>
+                                        </div>
+                                        <div class="w-col w-col-4 w-col-small-4 w-col-tiny-4 u-text-right">
+                                            <div class="fontsize-smaller fontweight-semibold">4 days</div>
+                                            <div class="fontsize-smallest lineheight-tightest">Remaining</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div></div>
+        <div class="w-section section bg-backs-carrosel section-large">
+            <div class="w-container">
+                <div class="card card-big">
+                    <div class="w-row">
+                        <div class="w-col w-col-8">
+                            <div class="fontsize-largest u-marginbottom-20">Share projects on facebook bivu edit</div>
+                            <div class="fontsize-small">Let the universe share the news! bivu edit</div>
+                        </div>
+                        <div class="w-col w-col-4"><a href="/connect-facebook" class="w-button btn btn-fb btn-large u-margintop-30 u-marginbottom-10">Connect facebook -bivu edit</a>
+                            <div class="fontsize-smallest fontcolor-secondary u-text-center">We never will post anything on Facebook without your permission
+</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% include '_blogs.html' %}
+    </div>
+
+    {% include '_footer.html' %}
+
+</div>
+
 {% endblock %}

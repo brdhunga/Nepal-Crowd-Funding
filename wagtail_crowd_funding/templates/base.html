@@ -22,6 +22,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         {# Global stylesheets #}
+        <link rel="stylesheet" media="screen" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+
         <link rel="stylesheet" type="text/css" href="{% static 'css/wagtail_crowd_funding.css' %}">
 
         {% block extra_css %}
@@ -31,6 +33,8 @@
 
     <body class="{% block body_class %}{% endblock %}">
         {% wagtailuserbar %}
+
+        {% include '_header.html' %}
 
         {% block content %}{% endblock %}
 
