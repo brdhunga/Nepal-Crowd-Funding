@@ -56,8 +56,10 @@ INSTALLED_APPS = [
     'wagtail.contrib.settings',
     'django_extensions',
     'test_without_migrations',
+    'imagekit',
     # my apps
     'nepalfund_cms',
+    'project',
 ]
 
 MIDDLEWARE = [
