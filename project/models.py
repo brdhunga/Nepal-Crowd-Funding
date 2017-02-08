@@ -94,7 +94,7 @@ class Project(models.Model):
         'Project description',
         help_text='This is the body of content that shows up on the project page.'
     )
-    created_by_user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='created_by_user')
+    created_by = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='created_by_user')
 
     def get_owner(self):
         return self.created_by_user

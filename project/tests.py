@@ -1,3 +1,34 @@
-from django.test import TestCase
+from datetime import date
+from dateutil.relativedelta import relativedelta
 
-# Create your tests here.
+import django
+from django.test import TestCase
+from django.contrib.auth.models import User
+
+from .models import Project
+
+
+class ProjectTest(TestCase):
+    def setUp(self):
+        self.proj1 = Project(funding_goal=90000.00, 
+            title="Test title 1", tagline="The best project",
+            location="Kathmandu", description="Project description",
+            )
+        
+        six_months = date.today() + relativedelta(months=+6)
+        user = User(username="test_user")
+        user.save()
+        
+        self.proj2 = Project(funding_goal=90000.00, 
+            title="Test title 1", tagline="The best project",
+            location="Kathmandu", description="Project description",
+            end_date = six_months
+            )
+
+    def test_cannot_save_without_user(self):
+        with self.assertRaises(django.db.utils.IntegrityError):
+            self.proj1.save()
+
+    def test_saves_project_with_no_error(self):
+        self.proj2.save()
+        self.assertEqual(2, 3)
