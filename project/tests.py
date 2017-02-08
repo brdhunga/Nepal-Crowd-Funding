@@ -22,7 +22,7 @@ class ProjectTest(TestCase):
         self.proj2 = Project(funding_goal=90000.00, 
             title="Test title 1", tagline="The best project",
             location="Kathmandu", description="Project description",
-            end_date = six_months
+            end_date = six_months, created_by = user
             )
 
     def test_cannot_save_without_user(self):
@@ -30,5 +30,4 @@ class ProjectTest(TestCase):
             self.proj1.save()
 
     def test_saves_project_with_no_error(self):
-        self.proj2.save()
-        self.assertEqual(2, 3)
+        self.assertEqual(self.proj2.project_status, Project.DRAFTED)
