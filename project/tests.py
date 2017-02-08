@@ -4,12 +4,16 @@ from dateutil.relativedelta import relativedelta
 import django
 from django.test import TestCase
 from django.contrib.auth.models import User
+from django.test import Client
+from django.urls import reverse
 
 from .models import Project
 
 
 class ProjectTest(TestCase):
     def setUp(self):
+        self.client = Client()
+
         self.proj1 = Project(funding_goal=90000.00, 
             title="Test title 1", tagline="The best project",
             location="Kathmandu", description="Project description",
@@ -33,6 +37,14 @@ class ProjectTest(TestCase):
             )
         self.proj2_duplicate.save()
 
+        self.public_project = Project(funding_goal=90000.00, 
+            title="Test title 1", tagline="The best project",
+            location="Kathmandu", description="Project description",
+            end_date = six_months, created_by = user,
+            project_status = Project.ACTIVE
+        )
+        self.public_project.save()
+
     def test_cannot_save_without_user(self):
         with self.assertRaises(django.db.utils.IntegrityError):
             self.proj1.save()
@@ -45,5 +57,17 @@ class ProjectTest(TestCase):
 
     def test_slugs_are_unique(self):
         self.assertNotEqual(self.proj2.slug, self.proj2_duplicate.slug)
+
+    def test_draft_projects_dont_show_frontpage(self):
+        home_page = self.client.get(reverse('home'))
+        self.assertNotIn(self.proj2_duplicate.title, str(home_page.content))
+
+    def test_approved_projects_show_on_frontpage(self):
+        home_page = self.client.get(reverse('home'))
+        self.assertIn(self.public_project.title, str(home_page.content))
+
+        
+
+
 
 
