@@ -4,6 +4,8 @@ from django.conf import settings
 from imagekit.models import ImageSpecField, ProcessedImageField
 from imagekit.processors import ResizeToFill
 
+from ckeditor.fields import RichTextField
+
 
 class Project(models.Model):
     """
