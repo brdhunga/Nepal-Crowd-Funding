@@ -43,6 +43,7 @@ class Project(models.Model):
         max_length=255,
         help_text='What would you like to name this project?'
     )
+    slug = models.SlugField(max_length=50, null=True, blank=False, unique=True)
     tagline = models.CharField(
         max_length=200,
         null=True,
