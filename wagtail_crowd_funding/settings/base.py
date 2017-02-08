@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     # my apps
     'nepalfund_cms',
     'project',
+    'users',
 ]
 
 MIDDLEWARE = [
