@@ -46,9 +46,9 @@ class ProjectTest(TestCase):
         )
         self.public_project.save()
 
-        self.public_project_draft = self.public_project
-        self.public_project_draft.project_status = Project.DRAFTED
-        self.public_project_draft.save()
+        self.public_project_active = self.public_project
+        self.public_project_active.project_status = Project.ACTIVE
+        self.public_project_active.save()
 
 
     def test_cannot_save_without_user(self):
@@ -67,8 +67,8 @@ class ProjectTest(TestCase):
     def test_all_projects_show_right_number(self):
         self.assertEqual(Project.objects.all().count(), 3)
 
-    def test_drafted_projects_show_right_number(self):
-        self.assertEqual(Project.objects.get_drafted_projects().count(), 1)
+    def test_active_projects_show_right_number(self):
+        self.assertEqual(Project.objects.get_active_projects().count(), 1)
 
     @tag('temporary')
     def test_draft_projects_dont_show_frontpage(self):
