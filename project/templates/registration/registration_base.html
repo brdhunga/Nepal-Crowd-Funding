@@ -1,6 +1,47 @@
+{% extends "base.html" %}
 
 
-{% block form_content %}
-<h1> This is name </h1>
+	
 
+
+{% block content %}
+
+<div class="w-container">
+    <div class="w-row">
+        <div class="w-col w-col-12 u-text-center u-marginbottom-10">
+            <a href="/pt"><img class="logo-login" src="" alt="Logo icon catharsis"></a>
+        </div>
+    </div>
+    <div class="w-row" id="login">
+        <div class="w-col w-col-6 box-login w-col-push-3">
+            <div class="fontweight-semibold u-text-center fontsize-large u-marginbottom-30">
+                <font>
+                    <font>Login</font>
+                </font>
+            </div>
+            <div class="login-fb">
+                <a class="btn btn-medium btn-fb" href="/auth/facebook">
+                    <font>
+                        <font>Login with Facebook</font>
+                    </font>
+                </a>
+            </div>
+            <div class="separator">
+                <div class="text or">
+                    <font>
+                        <font>or</font>
+                    </font>
+                </div>
+            </div>
+
+            <div class="w-form">
+            	{% block form_content %}
+
+				{% endblock %}
+            </div>
+
+        </div>
+    </div>
+</div>
 {% endblock %}
+
