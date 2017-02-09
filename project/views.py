@@ -5,4 +5,9 @@ from .models import Project
 
 
 class ProjectsListView(ListView):
-	model = Project
+    model = Project
+
+    def get_context_data(self, **kwargs):
+        context = super(ProjectsListView, self).get_context_data(**kwargs)
+        context['objects'] = Project.objects.get_active_projects()
+        return context

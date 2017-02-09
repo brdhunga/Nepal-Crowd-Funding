@@ -80,9 +80,13 @@ class ProjectHomePageTest(TestCase):
         home_page = self.client.get(reverse_lazy('home'))
         self.assertIn(self.public_project.title, str(home_page.content))
         
-    def test_root_url_shows_all_projects(self):
+    def test_root_projects_url_has_correct_status(self):
         project_page = self.client.get(reverse_lazy('all_projects'))
         self.assertEqual(project_page.status_code, 200)
+
+    def test_root_projects_url_shows_projects(self):
+        project_page = self.client.get(reverse_lazy('all_projects'))
+        self.assertIn(self.public_project.title, str(project_page.content))
 
 
 

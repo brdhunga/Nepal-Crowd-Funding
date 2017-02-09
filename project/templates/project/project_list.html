@@ -21,8 +21,7 @@
                     </div>
                 </div>
                 <div class="w-row">
-                    {{ projects }}
-                    {% with projects as projects %}
+                    {% with objects as projects %}
                         {% include 'project/_project_list.html' %}
                     {% endwith %}
                 </div>
