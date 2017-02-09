@@ -3,7 +3,7 @@
         <a href="/patachu?ref=home_score" class="card-project-thumb" style="background-image: url(); display: block;"></a>
         <div>
             <div class="card-project-description alt">
-                <div class="fontweight-semibold u-text-center-small-only lineheight-tight u-marginbottom-10 fontsize-base"><a href="/patachu?ref=home_score" class="link-hidden">{{ project.title }} </a></div>
+                <div class="fontweight-semibold u-text-center-small-only lineheight-tight u-marginbottom-10 fontsize-base"><a href="{% url 'single_project' project.slug %}" class="link-hidden">{{ project.title }} </a></div>
                 <div class="w-hidden-small w-hidden-tiny fontsize-smallest fontcolor-secondary u-marginbottom-20">by {{ project.owner.username }}</div>
                 <div class="w-hidden-small w-hidden-tiny fontcolor-secondary fontsize-smaller">
                     <a href="/patachu?ref=home_score" class="link-hidden">

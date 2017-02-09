@@ -99,7 +99,12 @@ class ProjectHomePageTest(TestCase):
         draft_project.save()
         self.assertNotIn(draft_project.title, str(project_page.content))
 
-
+    def test_single_project_renders(self):
+        slug = self.public_project_active.slug
+        single_project = self.client.get(reverse_lazy('single_project', kwargs={'slug':slug}))
+        self.assertEqual(single_project.status_code, 200)
+        self.assertIn(self.public_project_active.title, str(single_project.content))
+        self.assertIn(self.public_project_active.description, str(single_project.content))
 
 
 

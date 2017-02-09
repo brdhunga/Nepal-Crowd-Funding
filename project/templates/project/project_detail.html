@@ -1,0 +1,329 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<br /> <br />
+<div class="project-show">
+    <div id="project-header">
+        <div class="w-section section-product aon"></div>
+        <div class="w-section page-header u-text-center">
+            <div class="w-container">
+                <h1 itemprop="name" class="fontsize-larger fontweight-semibold project-name"><font><font class="">{{ project.title }}</font></font></h1>
+                <h2 itemprop="author" class="fontsize-base lineheight-looser"><font><font>by </font></font><font><font>{{ object.created_by.username }}</font></font></h2></div>
+        </div>
+        <div class="w-section project-main">
+            <div class="w-container">
+                <div class="w-row project-main">
+                    <div class="w-col w-col-8 project-highlight">
+                        <div id="project-highlight">
+                            <div style="background-image:url('');" class="project-image"></div>
+                            <div class="w-hidden-small w-hidden-tiny"><a href="/pt/explore?pg_search=SP" class="btn btn-inline btn-small btn-transparent link-hidden-light u-marginbottom-10"><span class="fa fa-map-marker"></span> {{ object.location }}<font><font> , </font></font></a><a href="/pt/explore#by_category_id/7" class="btn btn-inline btn-small btn-transparent link-hidden-light"><span class="fa fa-tag"></span> <font><font>{{ tags }}</font></font></a></div>
+                            <div class="project-blurb">
+                                {{ object.tagline }}
+                            </div>
+                            <div class="project-share w-hidden-small w-hidden-tiny">
+                                <div class="u-marginbottom-30 u-text-center-small-only">
+                                    <div class="w-inline-block fontcolor-secondary fontsize-smaller u-marginright-20">
+                                        <font>
+                                            <font>To share:</font>
+                                        </font>
+                                    </div>
+                                    <button class="btn btn-inline btn-medium btn-terciary u-marginright-20"><span class="fa fa-facebook"></span>
+                                        <font>
+                                            <font> Facebook</font>
+                                        </font>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-col w-col-4">
+                        <div id="project-sidebar" class="aside">
+                            <div class="project-stats">
+                                <div class="project-stats-inner">
+                                    <div class="project-stats-info">
+                                        <div class="u-marginbottom-20">
+                                            <div id="pledged" class="fontsize-largest fontweight-semibold u-text-center-small-only">Rs. {{ object.funding_goal }}
+                                            </div>
+                                            <div class="fontsize-small u-text-center-small-only">
+                                                <font>
+                                                    <font>supported by </font>
+                                                </font><span id="contributors" class="fontweight-semibold"><font><font>80 people bivu edit find number of funders here</font></font></span></div>
+                                        </div>
+                                        <div class="meter">
+                                            <div id="progressBar" class="meter-fill" style="width: 9333.33%;"></div>
+                                        </div>
+                                        <div class="w-row u-margintop-10">
+                                            <div class="w-col w-col-5 w-col-small-6 w-col-tiny-6">
+                                                <div class="fontsize-small fontweight-semibold lineheight-tighter">9333%
+                                                    <font>
+                                                        <font>9216%</font>
+                                                    </font>
+                                                </div>
+                                            </div>
+                                            <div class="w-col w-col-7 w-col-small-6 w-col-tiny-6 w-clearfix">
+                                                <div class="u-right fontsize-small lineheight-tighter"><span class="fontweight-semibold"><font><font>6</font></font></span>
+                                                    <font>
+                                                        <font> days left</font>
+                                                    </font>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="w-row">
+                                        <div id="aon" class="w-row">
+                                            <div class="w-col w-col-2 w-col-small-2 w-col-tiny-2"><img src="/assets/aon-badge.png" width="30"></div>
+                                            <div class="w-col w-col-10 w-col-small-10 w-col-tiny-10">
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="back-project-btn-div">
+                                    <div class="back-project--btn-row">
+                                        <a id="contribute_project_form" href="#" class="btn btn-large u-marginbottom-20">
+                                            <font>
+                                                <font>Support this project</font>
+                                            </font>
+                                        </a>
+                                    </div>
+                                    <div class="back-project-btn-row-right">
+                                        <div id="project-reminder" class="u-text-center u-marginbottom-30"><a data-ix="popshare" href="#" class="btn btn-small btn-terciary w-hidden-main w-hidden-medium"><span class="fa fa-heart-o"></span><font><font> Remember me</font></font></a>
+                                            <button class="w-hidden-small w-hidden-tiny btn-link link-hidden fontsize-small fontcolor-secondary fontweight-semibold"><span class="fa fa-heart-o"></span></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="friend-backed-card project-page"></div>
+                                <div class="fontsize-smaller u-marginbottom-30 ">
+                                    <font>
+                                        <font>You can support this project until {{ object.end_date }} </font>
+                                    </font>
+                                </div>
+                            </div>
+                            <div class="project-share w-hidden-main w-hidden-medium"><a href="/pt/explore?pg_search=SP" class="btn btn-inline btn-small btn-transparent link-hidden-light u-marginbottom-10"><span class="fa fa-map-marker"></span> Barueri, SP<font><font> , </font></font></a><a href="/pt/explore#by_category_id/7" class="btn btn-inline btn-small btn-transparent link-hidden-light"><span class="fa fa-tag"></span> <font><font>Comics</font></font></a>
+                                <div class="u-marginbottom-30 u-text-center-small-only">
+                                    <button class="btn btn-inline btn-medium btn-terciary">
+                                        <font>
+                                            <font>Share this project</font>
+                                        </font>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <br /> <br />
+                            <div class="user-c">
+                                <div id="user-card">
+                                    <div class="u-marginbottom-30 u-text-center-small-only">
+                                        <div class="w-row">
+                                            <div class="w-col w-col-4"><img width="100" itemprop="image" src="" class="thumb u-marginbottom-30 u-round"></div>
+                                            <div class="w-col w-col-8">
+                                                <div itemprop="name" class="fontsize-small link-hidden fontweight-semibold u-marginbottom-10 lineheight-tight">
+                                                    <a href="/users/95664" class="link-hidden" data-vivaldi-spatnav-clickable="1">
+                                                        <font>
+                                                            <font>Bivu Raj bivu edit</font>
+                                                        </font>
+                                                    </a>
+                                                </div>
+                                                <div class="fontsize-smallest">
+                                                    <font>
+                                                        <font>8 created </font>
+                                                    </font>
+                                                    <font>
+                                                        <font>&nbsp;&nbsp;|&nbsp;&nbsp;</font>
+                                                    </font>
+                                                    <font>
+                                                        <font>50 supported</font>
+                                                    </font>
+                                                </div>
+                                                <ul class="w-hidden-tiny w-hidden-small w-list-unstyled fontsize-smaller fontweight-semibold u-margintop-20 u-marginbottom-20">
+                               
+                                                </ul>
+                                                <a href="javascript:void(0);" class="w-button btn btn-terciary btn-small btn-inline">
+                                                    <font>
+                                                        <font>Send message</font>
+                                                    </font>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <font>
+                                    </font>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav-wrapper>
+        <div class="w-section project-nav">
+            <div class="w-container">
+                <div class="w-row">
+                    <div class="w-col w-col-8">
+                        <a id="rewards-link" class="w-hidden-main w-hidden-medium dashboard-nav-link mf  " href="/BomDemais#rewards" style="float: left;">
+                            <font>
+                                <font>Suggested values</font>
+                            </font>
+                        </a>
+                        <a id="about-link" class="dashboard-nav-link mf selected" href="#about" style="float: left;">
+                            <font>
+                                <font class="">About </font>
+                            </font>
+                        </a>
+                        <a id="posts-link" class="dashboard-nav-link mf " href="#posts" style="float: left;">
+                            <font>
+                                <font class="">News </font>
+                            </font><span class="badge"><font><font>1</font></font></span></a>
+                        <a id="contributions-link" class="w-hidden-small w-hidden-tiny dashboard-nav-link mf " href="#contributions" style="float: left;">
+                            <font>
+                                <font class="">Supporters </font>
+                            </font><span class="badge w-hidden-small w-hidden-tiny"><font><font>80</font></font></span></a>
+                        <a id="comments-link" class="dashboard-nav-link mf " href="#comments" style="float: left;">
+                            <font>
+                                <font class="">Comments</font>
+                            </font>
+                            <fb:comments-count href="#" class="badge project-fb-comment w-hidden-small w-hidden-tiny" style="display: inline">&nbsp;</fb:comments-count>
+                        </a>
+                    </div>
+                    <div class="w-col w-col-4 w-hidden-small w-hidden-tiny">
+                        <div class="w-row project-nav-back-button">
+                            <div class="w-col w-col-6 w-col-medium-8">
+                                <a href="/projects/50681/contributions/new" class="w-button btn">
+                                    <font>
+                                        <font>Support this project</font>
+                                    </font>
+                                </a>
+                            </div>
+                            <div class="w-col w-col-6 w-col-medium-4">
+                                <div id="project-reminder"><a data-ix="popshare" href="#" class="btn btn-small btn-terciary w-hidden-main w-hidden-medium"><span class="fa fa-heart-o"></span><font><font> Remember me</font></font></a>
+                                    <button class="w-hidden-small w-hidden-tiny w-button btn btn-terciary btn-no-border fontcolor-secondary fontweight-semibold"><span class="fa fa-heart-o"></span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav-wrapper>
+    <section itemtype="http://schema.org/CreativeWork" class="section">
+        <div class="w-container">
+            <div class="w-row">
+                <div id="project-about">
+                    <div class="project-about w-col w-col-8">
+                        <p class="fontsize-base"><strong><font><font>The project</font></font></strong></p>
+                        <div itemprop="about" class="fontsize-base">
+                            {{ object.description }}
+                        </div>
+                        <p class="fontsize-base fontweight-semibold">
+                            <font>
+                                <font>Budget</font>
+                            </font>
+                        </p>
+                        <p class="fontsize-base">
+                            <p><img src=""></p>
+                            <p>
+                                <font>
+                                    <font>As we have no goal, we have no budget. </font>
+                                    <font>As explained above, this project has been 100% funded by the Department of São Paulo State Culture as one of the projects covered by ProAc Comics in 2015.</font>
+                                </font>
+                            </p>
+                            <p>
+                                <font>
+                                    <font>What we raise here goal is to cover 13% of Catharsis, post shipping rates and the market value of the specimens.</font>
+                                </font>
+                            </p>
+                            <p>
+                                <font>
+                                    <font>Thank you very much!</font>
+                                </font>
+                            </p>
+                        </p>
+                        <div class="card card-terciary u-radius">
+                            <div class="fontsize-small u-marginbottom-20">
+                                <font>
+                                    <font>This project violates </font>
+                                    <a href="" target="_blank" class="alt-link">
+                                        <font>our rules?</font>
+                                    </a>
+                                </font>&nbsp;
+                                <a href="" target="_blank" class="alt-link">
+                                    <font></font>
+                                </a>
+                            </div>
+                            <div href="javascript:void(0);" class="a w-button btn btn-medium btn-terciary btn-inline">
+                                <font>
+                                    <font>Report this project</font>
+                                </font>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-col w-col-4 w-hidden-small w-hidden-tiny">
+                        <div class="fontsize-base fontweight-semibold u-marginbottom-30">
+                            <font>
+                                <font>support suggestions</font>
+                            </font>
+                        </div>
+                        <div id="rewards" class="u-marginbottom-30">
+                            <div class="card-reward clickable card card-secondary u-marginbottom-10">
+                                <div class="u-marginbottom-20">
+                                    <div class="fontsize-base fontweight-semibold">
+                                        <font>
+                                            <font>For R $ 35 or more</font>
+                                        </font>
+                                    </div>
+                                    <div class="fontsize-smaller fontweight-semibold">
+                                        <font>
+                                            <font>79 support</font>
+                                        </font>
+                                    </div>
+                                </div>
+                                <div class="fontsize-smaller u-margintop-20">
+                                    <p>
+                                        <font>
+                                            <font>&gt; A PRINTED copy! </font>
+                                            <font>of "Too Good - A Sincere History of Fiction vs. Reality"</font>
+                                        </font>
+                                    </p>
+                                    <p>
+                                        <font>
+                                            <font>&gt; Numbered and signed by the author</font>
+                                        </font>
+                                    </p>
+                                    <p>
+                                        <font>
+                                            <font>&gt; Free Shipping for all Brazil!</font>
+                                        </font>
+                                    </p>
+                                    <p>
+                                        <font>
+                                            <font>&gt; Digital Copy PDF</font>
+                                        </font>
+                                    </p>
+                                </div>
+                                <div class="fontsize-smaller"><b><font><font>Delivery estimate:</font></font></b>
+                                    <font>
+                                        <font> Feb / 2017</font>
+                                    </font>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="funding-period">
+                            <div class="fontsize-small fontweight-semibold u-text-center-small-only">
+                                <font>
+                                    <font>campaign period</font>
+                                </font>
+                            </div>
+                            <div class="fontsize-small u-text-center-small-only">
+                                <font>
+                                    <font>08/02/2017 - 02/15/2017 (7 days)</font>
+                                </font>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}
