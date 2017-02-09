@@ -21,8 +21,10 @@ class ProjectHomePageTest(TestCase):
             )
         
         six_months = date.today() + relativedelta(months=+6)
+        self.six_months = six_months
         user = User(username="test_user")
         user.save()
+        self.user = user
         
         self.proj2 = Project(funding_goal=90000.00, 
             title="Test title 1", tagline="The best project",
@@ -84,9 +86,20 @@ class ProjectHomePageTest(TestCase):
         project_page = self.client.get(reverse_lazy('all_projects'))
         self.assertEqual(project_page.status_code, 200)
 
-    def test_root_projects_url_shows_projects(self):
+    def test_root_projects_url_shows_active_projects(self):
         project_page = self.client.get(reverse_lazy('all_projects'))
         self.assertIn(self.public_project.title, str(project_page.content))
+
+        draft_project = Project(funding_goal=90000.00, 
+            title="This is a draft project", tagline="The best project",
+            location="Kathmandu", description="Project description",
+            end_date = self.six_months, created_by = self.user,
+            project_status = Project.ACTIVE
+        )
+        draft_project.save()
+        self.assertNotIn(draft_project.title, str(project_page.content))
+
+
 
 
 
