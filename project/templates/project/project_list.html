@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block content %}
+    <div id="app">
+
+    <div></div>
+    <div id="projects-home-component">
+
+        <div class="w-section section u-marginbottom-40">
+            <div class="w-container">
+                <div class="w-row u-marginbottom-30">
+                    <div class="w-col w-col-10 w-col-small-6 w-col-tiny-6">
+                        <div class="fontsize-large lineheight-looser">Popular project bivu edit</div>
+                    </div>
+                    <div class="w-col w-col-2 w-col-small-6 w-col-tiny-6">
+                        <div class="w-row">
+                            <div class="w-col w-col-12"><a href="/explore?ref=home_score&amp;filter=all" class="btn btn-small btn-terciary" data-vivaldi-spatnav-clickable="1">See all</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-row">
+                    {{ projects }}
+                    {% with projects as projects %}
+                        {% include 'project/_project_list.html' %}
+                    {% endwith %}
+                </div>
+            </div>
+        </div>
+        <div></div>
+        <div class="w-section section bg-backs-carrosel section-large">
+            <div class="w-container">
+                <div class="card card-big">
+                    <div class="w-row">
+                        <div class="w-col w-col-8">
+                            <div class="fontsize-largest u-marginbottom-20">Share projects on facebook bivu edit</div>
+                            <div class="fontsize-small">Let the universe share the news! bivu edit</div>
+                        </div>
+                        <div class="w-col w-col-4"><a href="/connect-facebook" class="w-button btn btn-fb btn-large u-margintop-30 u-marginbottom-10">Connect facebook -bivu edit</a>
+                            <div class="fontsize-smallest fontcolor-secondary u-text-center">We never will post anything on Facebook without your permission
+</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% include '_footer.html' %}
+
+</div>
+
+{% endblock %}

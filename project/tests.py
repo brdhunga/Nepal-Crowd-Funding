@@ -79,9 +79,10 @@ class ProjectHomePageTest(TestCase):
     def test_approved_projects_show_on_frontpage(self):
         home_page = self.client.get(reverse_lazy('home'))
         self.assertIn(self.public_project.title, str(home_page.content))
-
         
-
+    def test_root_url_shows_all_projects(self):
+        project_page = self.client.get(reverse_lazy('all_projects'))
+        self.assertEqual(project_page.status_code, 200)
 
 
 

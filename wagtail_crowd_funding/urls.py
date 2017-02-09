@@ -22,7 +22,7 @@ urlpatterns = [
     # For anything not caught by a more specific rule above, hand over to
     # Wagtail's page serving mechanism. This should be the last pattern in
     # the list:
-    #url(r'^projects/', include('project.urls')),
+    url(r'^projects/', include('project.urls')),
     url(r'^$', home, name='home'),
     
 
