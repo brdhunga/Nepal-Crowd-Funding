@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'taggit',
 
     'django.contrib.admin',
+    # 
+    'registration',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -159,5 +161,8 @@ BASE_URL = 'http://example.com'
 
 TEST_WITHOUT_MIGRATIONS_COMMAND = 'django_nose.management.commands.test.Command'
 
-
 SITE_ID = 1
+
+ACCOUNT_ACTIVATION_DAYS = 7 
+
+REGISTRATION_AUTO_LOGIN = True
