@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     # 
     'registration',
+    'project',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -61,9 +62,9 @@ INSTALLED_APPS = [
     'imagekit',
     'ckeditor',
     'autofixture',
+    'debug_toolbar',
     # my apps
     'nepalfund_cms',
-    'project',
     'users',
 ]
 
@@ -76,7 +77,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
-
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'wagtail.wagtailcore.middleware.SiteMiddleware',
     'wagtail.wagtailredirects.middleware.RedirectMiddleware',
 ]
@@ -166,3 +167,5 @@ SITE_ID = 1
 ACCOUNT_ACTIVATION_DAYS = 7 
 
 REGISTRATION_AUTO_LOGIN = True
+
+INTERNAL_IPS = ['127.0.0.1']
