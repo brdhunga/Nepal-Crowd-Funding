@@ -16,7 +16,7 @@ class HomepageView(TemplateView):
 
 
 def home(request):
-    projects = Project.objects.filter(project_status=Project.ACTIVE)
+    projects = Project.objects.get_active_projects()
     return render(request, 
                 'home/home_page.html',
                 {

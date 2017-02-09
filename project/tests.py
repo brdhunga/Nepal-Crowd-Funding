@@ -11,7 +11,7 @@ from django.test import tag
 from .models import Project
 
 
-class ProjectTest(TestCase):
+class ProjectHomePageTest(TestCase):
     def setUp(self):
         self.client = Client()
 
@@ -70,16 +70,15 @@ class ProjectTest(TestCase):
     def test_active_projects_show_right_number(self):
         self.assertEqual(Project.objects.get_active_projects().count(), 1)
 
-    @tag('temporary')
+    #@tag('temporary')
     def test_draft_projects_dont_show_frontpage(self):
         home_page = self.client.get(reverse_lazy('home'))
         self.assertIn(self.proj2_duplicate.title, str(home_page.content))
 
-    @tag('temporary')
+    #@tag('temporary')
     def test_approved_projects_show_on_frontpage(self):
         home_page = self.client.get(reverse_lazy('home'))
-        #self.assertIn(self.public_project.title, str(home_page.content))
-        self.assertEqual(2, 3)
+        self.assertIn(self.public_project.title, str(home_page.content))
 
         
 
