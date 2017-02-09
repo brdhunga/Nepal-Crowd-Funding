@@ -7,6 +7,29 @@ from imagekit.processors import ResizeToFill
 from ckeditor.fields import RichTextField
 
 
+class ProjectManager(models.Manager):
+    
+    def get_queryset(self):
+        return super(ProjectManager, self).get_queryset()
+
+    def get_active_projects(self):
+        return super(ProjectManager, self).get_queryset()\
+                .filter(project_status=Project.ACTIVE)
+
+    def get_drafted_projects(self):
+        return super(ProjectManager, self).get_queryset()\
+                .filter(project_status=Project.DRAFTED)
+
+    def get_completed_projects(self):
+        return super(ProjectManager, self).get_queryset()\
+                .filter(project_status=Project.COMPLETED)
+
+    def get_staged_projects(self):
+        return super(ProjectManager, self).get_queryset()\
+                .filter(project_status=Project.STAGED)
+
+
+
 class Project(models.Model):
     """
     Project model. This stores direct information and metadata about
@@ -96,6 +119,8 @@ class Project(models.Model):
         help_text='This is the body of content that shows up on the project page.'
     )
     created_by = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='created_by_user')
+
+    objects = ProjectManager()
 
     def get_owner(self):
         return self.created_by_user

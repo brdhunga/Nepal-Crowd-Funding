@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'test_without_migrations',
     'imagekit',
     'ckeditor',
+    'autofixture',
     # my apps
     'nepalfund_cms',
     'project',

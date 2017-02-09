@@ -1,0 +1,39 @@
+<div class="w-col w-col-4">
+    <div class="card-project card u-radius">
+        <a href="/patachu?ref=home_score" class="card-project-thumb" style="background-image: url(); display: block;"></a>
+        <div>
+            <div class="card-project-description alt">
+                <div class="fontweight-semibold u-text-center-small-only lineheight-tight u-marginbottom-10 fontsize-base"><a href="/patachu?ref=home_score" class="link-hidden">{{ project.title }} </a></div>
+                <div class="w-hidden-small w-hidden-tiny fontsize-smallest fontcolor-secondary u-marginbottom-20">by {{ project.owner.username }}</div>
+                <div class="w-hidden-small w-hidden-tiny fontcolor-secondary fontsize-smaller">
+                    <a href="/patachu?ref=home_score" class="link-hidden">
+
+                    </a></div>
+            </div>
+            <div class="w-hidden-small w-hidden-tiny card-project-author altt">
+                <div class="fontsize-smallest fontcolor-secondary"><span class="fa fa-map-marker fa-1"> </span> {{ project.location }}, NP</div>
+            </div>
+            <div class="card-project-meter aon online 69 66">
+                <div class="meter">
+                <!-- bivu edit: add method in class update the percentage -->
+                    <div class="meter-fill" style="width: 25.66%;"></div>
+                </div>
+            </div>
+            <div class="card-project-stats">
+                <div class="w-row">
+                    <div class="w-col w-col-4 w-col-small-4 w-col-tiny-4">
+                        <div class="fontsize-base fontweight-semibold">25.66%</div>
+                    </div>
+                    <div class="w-col w-col-4 w-col-small-4 w-col-tiny-4 u-text-center-small-only">
+                        <div class="fontsize-smaller fontweight-semibold">Rs. {{ project.funding_goal }}</div>
+                        <div class="fontsize-smallest lineheight-tightest">raised</div>
+                    </div>
+                    <div class="w-col w-col-4 w-col-small-4 w-col-tiny-4 u-text-right">
+                        <div class="fontsize-smaller fontweight-semibold">4 days</div>
+                        <div class="fontsize-smallest lineheight-tightest">Remaining</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

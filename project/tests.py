@@ -5,7 +5,8 @@ import django
 from django.test import TestCase
 from django.contrib.auth.models import User
 from django.test import Client
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
+from django.test import tag
 
 from .models import Project
 
@@ -45,6 +46,11 @@ class ProjectTest(TestCase):
         )
         self.public_project.save()
 
+        self.public_project_draft = self.public_project
+        self.public_project_draft.project_status = Project.DRAFTED
+        self.public_project_draft.save()
+
+
     def test_cannot_save_without_user(self):
         with self.assertRaises(django.db.utils.IntegrityError):
             self.proj1.save()
@@ -58,13 +64,22 @@ class ProjectTest(TestCase):
     def test_slugs_are_unique(self):
         self.assertNotEqual(self.proj2.slug, self.proj2_duplicate.slug)
 
-    def test_draft_projects_dont_show_frontpage(self):
-        home_page = self.client.get(reverse('home'))
-        self.assertNotIn(self.proj2_duplicate.title, str(home_page.content))
+    def test_all_projects_show_right_number(self):
+        self.assertEqual(Project.objects.all().count(), 3)
 
+    def test_drafted_projects_show_right_number(self):
+        self.assertEqual(Project.objects.get_drafted_projects().count(), 1)
+
+    @tag('temporary')
+    def test_draft_projects_dont_show_frontpage(self):
+        home_page = self.client.get(reverse_lazy('home'))
+        self.assertIn(self.proj2_duplicate.title, str(home_page.content))
+
+    @tag('temporary')
     def test_approved_projects_show_on_frontpage(self):
-        home_page = self.client.get(reverse('home'))
-        self.assertIn(self.public_project.title, str(home_page.content))
+        home_page = self.client.get(reverse_lazy('home'))
+        #self.assertIn(self.public_project.title, str(home_page.content))
+        self.assertEqual(2, 3)
 
         
 
