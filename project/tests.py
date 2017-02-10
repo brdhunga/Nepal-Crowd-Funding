@@ -23,6 +23,7 @@ class ProjectHomePageTest(TestCase):
         six_months = date.today() + relativedelta(months=+6)
         self.six_months = six_months
         user = User(username="test_user")
+        user.set_password('usausausa')
         user.save()
         self.user = user
         
@@ -111,5 +112,11 @@ class ProjectHomePageTest(TestCase):
         new_project = self.client.get(reverse_lazy('new_project'), follow=True)
         new_redirect = new_project.redirect_chain[0][0]
         self.assertIn("/login", new_redirect)
+
+    def test_logged_in_users_can_create_project(self):
+        c = self.client
+        c.login(username="test_user", password="usausausa")
+        response = c.get(reverse_lazy('new_project'))
+        self.assertIn("Create New Project", str(response.content))
 
 
