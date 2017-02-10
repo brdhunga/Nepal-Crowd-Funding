@@ -1,6 +1,5 @@
 from django.shortcuts import render
-from django.views.generic.list import ListView
-from django.views.generic import DetailView
+from django.views.generic import DetailView, CreateView, ListView
 
 from .models import Project
 
@@ -18,3 +17,7 @@ class ProjectDetailView(DetailView):
     model = Project
     slug_field = 'slug'
 
+
+class ProjectCreateView(CreateView):
+	model = Project
+	success_url = '/'
