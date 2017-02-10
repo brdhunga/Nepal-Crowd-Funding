@@ -12,31 +12,25 @@
         </div>
     </div>
     <div class="w-row" id="login">
-        <div class="w-col w-col-6 box-login w-col-push-3">
+        <div class="w-col w-col-8 box-login w-col-push-2">
             <div class="fontweight-semibold u-text-center fontsize-large u-marginbottom-30">
                 <font>
-                    <font>Login</font>
+                    <font>Create New Project</font>
                 </font>
             </div>
             <div class="login-fb">
                 <a class="btn btn-medium btn-fb" href="/auth/facebook">
-                    <font>
-                        <font>Login with Facebook</font>
-                    </font>
                 </a>
             </div>
             <div class="separator">
-                <div class="text or">
-                    <font>
-                        <font>or</font>
-                    </font>
-                </div>
             </div>
 
             <div class="w-form">
-            	{% block form_content %}
-
-				{% endblock %}
+            	<form method="post" action="">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input type="submit" value="Submit" />
+                </form>
             </div>
 
         </div>

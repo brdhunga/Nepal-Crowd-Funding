@@ -14,10 +14,11 @@ from __future__ import absolute_import, unicode_literals
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+from django.urls import reverse_lazy
+
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
-print("the base dir is", BASE_DIR)
 
 
 # Quick-start development settings - unsuitable for production
@@ -169,3 +170,6 @@ ACCOUNT_ACTIVATION_DAYS = 7
 REGISTRATION_AUTO_LOGIN = True
 
 INTERNAL_IPS = ['127.0.0.1']
+
+
+LOGIN_URL = "/accounts/login"

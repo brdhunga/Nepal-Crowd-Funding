@@ -109,4 +109,7 @@ class ProjectHomePageTest(TestCase):
     @tag('temporary')
     def test_only_login_user_can_create_project(self):
         new_project = self.client.get(reverse_lazy('new_project'), follow=True)
-        self.assertEqual(new_project.status_code, 200)
+        new_redirect = new_project.redirect_chain[0][0]
+        self.assertIn("/login", new_redirect)
+
+
