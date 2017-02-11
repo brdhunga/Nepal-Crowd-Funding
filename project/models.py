@@ -155,7 +155,7 @@ class Reward(models.Model):
     shipping_date = models.DateField(
         help_text='When will the reward be ready?'
     )
-    project = models.ForeignKey(Project, related_name="project_for_reward")
+    project = models.ForeignKey(Project, related_name="rewards_for_project")
 
     def __str__(self):
         return "{}: {}".format(self.name, self.project)

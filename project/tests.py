@@ -8,7 +8,7 @@ from django.test import Client
 from django.urls import reverse, reverse_lazy
 from django.test import tag
 
-from .models import Project
+from .models import Project, Reward
 
 
 class ProjectHomePageTest(TestCase):
@@ -118,5 +118,53 @@ class ProjectHomePageTest(TestCase):
         c.login(username="test_user", password="usausausa")
         response = c.get(reverse_lazy('new_project'))
         self.assertIn("Create New Project", str(response.content))
+
+    def test_multiple_rewards_can_be_added_to_project(self):
+        nine_months = date.today() + relativedelta(months=+9)
+        ten_months = date.today() + relativedelta(months=+10)
+
+        reward1 = Reward(name="Reward kind 1", description="Description for reward 1",
+                    reward_amout=10000.0, is_digital_product=True, shipping_date=nine_months,
+                    project=self.public_project_active)
+        reward1.save()
+        # 
+        reward2 = Reward(name="Reward kind 1", description="Description for reward 1",
+                    reward_amout=10000.0, is_digital_product=True, shipping_date=nine_months,
+                    project=self.public_project_active)
+        reward2.save()
+
+        rewards = self.public_project_active.rewards_for_project
+        print(dir(rewards))
+
+
+        self.assertEqual(rewards.count(), 2)
+
+
+'''
+    name = models.CharField(
+                max_length=200,
+                blank=False,
+                null=True,
+                help_text="Write the title for this kind of Reward")
+    description = RichTextField(
+                blank=False,
+                null=True,
+                help_text="Write the detail for this kind of Reward")
+    reward_amout = models.DecimalField(
+        max_digits = 15,
+        decimal_places = 2,
+        help_text = "How much does the donor have to pay to get this reward?"
+    )
+    is_digital_product = models.BooleanField(
+        default=False,
+        help_text="Is it digital product like pdf/ebook that does not need shipping?"
+    )
+    shipping_date = models.DateField(
+        help_text='When will the reward be ready?'
+    )
+    project = models.ForeignKey(Project, related_name="project_for_reward")
+
+'''
+
 
 
