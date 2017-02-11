@@ -133,9 +133,32 @@ class Project(models.Model):
 
 
 
+class Reward(models.Model):
+    name = models.CharField(
+                max_length=200,
+                blank=False,
+                null=True,
+                help_text="Write the title for this kind of Reward")
+    description = RichTextField(
+                blank=False,
+                null=True,
+                help_text="Write the detail for this kind of Reward")
+    reward_amout = models.DecimalField(
+        max_digits = 15,
+        decimal_places = 2,
+        help_text = "How much does the donor have to pay to get this reward?"
+    )
+    is_digital_product = models.BooleanField(
+        default=False,
+        help_text="Is it digital product like pdf/ebook that does not need shipping?"
+    )
+    shipping_date = models.DateField(
+        help_text='When will the reward be ready?'
+    )
+    project = models.ForeignKey(Project, related_name="project_for_reward")
 
-
-
+    def __str__(self):
+        return "{}: {}".format(self.name, self.project)
 
 
 
